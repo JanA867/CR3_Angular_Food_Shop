@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="order d-flex justify-content-around mt-5 pt-5">
+        <div class="myItems mt-5 pt-5 d-flex">
+            <div *ngFor="let product of order" class="ms-3">
+                <img src="{{product.img}}" alt="" height="100">
+                <p>{{product.name}}</p>
+                <p>{{product.type}}</p>
+                <p>{{product.price}}</p>
+                <hr>
+            </div>
+        </div>
+        <div class="myTotal">
+            <hr>
+            <p>Your Order: <span>{{total | currency}}</span></p>
+            <p>Service: <span>{{service | currency}}</span></p>
+            <p>Total: <span>{{sum | currency}}</span></p>
+        </div>
+    </div>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <h2>Add your Adresse</h2>
+        <div class="m-2">
+
+            <label class="me-2" for="fname">
+         
+              First Name:
+         
+            </label>
+
+            <input id="fname" type="text" formControlName="fname">
+
+        </div>
+
+        <div class="m-2">
+
+            <label class="me-2" for="lname">
+         
+              Last Name:
+         
+            </label>
+
+            <input id="lname" type="text" formControlName="lname">
+
+        </div>
+
+
+        <div class="m-2">
+
+            <label class="me-2" for="address">
+         
+              Address: 
+         
+            </label>
+
+            <input id="address" type="text" formControlName="address">
+
+        </div>
+
+        <div class="m-2">
+
+            <label class="me-2" for="zip">
+         
+              Zip Code: 
+         
+            </label>
+
+            <input id="zip" type="text" formControlName="zip">
+
+        </div>
+        <input class="button btn btn-primary mb-5 p-2 mt-2" type="submit" value="submit">
+    </form>
+
+</div>

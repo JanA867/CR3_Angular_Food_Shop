@@ -1,0 +1,11 @@
+<h2 class=" mt-5 text-white">See more details</h2>
+<div *ngIf="product" class="mb-5">
+    <img src="{{product.img}}" height="400">
+    <h2>{{product.name}}</h2>
+    <h5>{{product.type}}</h5>
+    <p>{{product.description}}</p>
+    <span>{{product.price | currency}}</span>
+    <hr>
+    <a class="btn btn-primary me-2" routerLink="/menue">Back to Menue</a>
+    <a class="btn btn-secondary" (click)="addToCart()">Order</a>
+</div>
