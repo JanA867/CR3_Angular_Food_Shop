@@ -6,5 +6,6 @@ export interface IProducts {
     description: string;
     qtty: number;
     available: boolean;
-    img: string
+    img: string;
+    icon: string;
     }

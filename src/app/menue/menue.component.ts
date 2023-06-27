@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { products } from '../products';
 import { IProducts } from '../IProducts';
 import { OrderService } from '../order.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -24,16 +24,15 @@ export class MenueComponent implements OnInit{
   };
 
 
-  addToCart(){
-    this.orderService.addToCart(this.product);
+  addToCart(product: IProducts){
+    this.orderService.addToCart(product)
   }; 
 
   ngOnInit(): void {
-    // this.activatedRout.params.subscribe((params:any)=>{
-    // this.index = Number(params["id"]) });
-    this.product = products[this.index];
-       
-      }
-
-
+    this.activatedRout.params.subscribe((params:Params)=>{
+    this.index = +params['id'];
+    this.product = this.products[this.index];
+    
+      });
+    }
 }
